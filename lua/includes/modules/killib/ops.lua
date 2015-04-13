@@ -45,59 +45,59 @@ ops[14] = {"ld d var","is t"}
 ops[15] = {"ld d var","is f"}
 
 --Unary
-ops[16] = {"ld a lit","ld d var","sv a d"}
-ops[17] = {"ld a lit","ld d var","un not","sv a d"}
-ops[18] = {"ld a lit","ld d var","un minus","sv a d"}
-ops[19] = {"ld a lit","ld d var","un len","sv a d"}
+ops[16] = {"ld a lit","ld d var","sv d"}
+ops[17] = {"ld a lit","ld d var","un not","sv d"}
+ops[18] = {"ld a lit","ld d var","un minus","sv d"}
+ops[19] = {"ld a lit","ld d var","un len","sv d"}
 
 --Maths
-ops[20] = {"ld a lit","ld b var","ld c num","math add b c","sv a b"}
-ops[21] = {"ld a lit","ld b var","ld c num","math sub b c","sv a b"}
-ops[22] = {"ld a lit","ld b var","ld c num","math mul b c","sv a b"}
-ops[23] = {"ld a lit","ld b var","ld c num","math div b c","sv a b"}
-ops[24] = {"ld a lit","ld b var","ld c num","math mod b c","sv a b"}
+ops[20] = {"ld a lit","ld b var","ld c num","math add b c","sv b"}
+ops[21] = {"ld a lit","ld b var","ld c num","math sub b c","sv b"}
+ops[22] = {"ld a lit","ld b var","ld c num","math mul b c","sv b"}
+ops[23] = {"ld a lit","ld b var","ld c num","math div b c","sv b"}
+ops[24] = {"ld a lit","ld b var","ld c num","math mod b c","sv b"}
 
-ops[25] = {"ld a lit","ld b var","ld c num","math add c b","sv a b"}
-ops[26] = {"ld a lit","ld b var","ld c num","math sub c b","sv a b"}
-ops[27] = {"ld a lit","ld b var","ld c num","math mul c b","sv a b"}
-ops[28] = {"ld a lit","ld b var","ld c num","math div c b","sv a b"}
-ops[29] = {"ld a lit","ld b var","ld c num","math mod c b","sv a b"}
+ops[25] = {"ld a lit","ld b var","ld c num","math add c b","sv b"}
+ops[26] = {"ld a lit","ld b var","ld c num","math sub c b","sv b"}
+ops[27] = {"ld a lit","ld b var","ld c num","math mul c b","sv b"}
+ops[28] = {"ld a lit","ld b var","ld c num","math div c b","sv b"}
+ops[29] = {"ld a lit","ld b var","ld c num","math mod c b","sv b"}
 
-ops[30] = {"ld a lit","ld b var","ld c var","math add b c","sv a b"}
-ops[31] = {"ld a lit","ld b var","ld c var","math sub b c","sv a b"}
-ops[32] = {"ld a lit","ld b var","ld c var","math mul b c","sv a b"}
-ops[33] = {"ld a lit","ld b var","ld c var","math div b c","sv a b"}
-ops[34] = {"ld a lit","ld b var","ld c var","math mod b c","sv a b"}
+ops[30] = {"ld a lit","ld b var","ld c var","math add b c","sv b"}
+ops[31] = {"ld a lit","ld b var","ld c var","math sub b c","sv b"}
+ops[32] = {"ld a lit","ld b var","ld c var","math mul b c","sv b"}
+ops[33] = {"ld a lit","ld b var","ld c var","math div b c","sv b"}
+ops[34] = {"ld a lit","ld b var","ld c var","math mod b c","sv b"}
 
 --Misc Maths
-ops[35] = {"ld a lit","ld b var","ld c var","math pow b c","sv a b"}
-ops[36] = {"ld a lit","ld b lit","ld c lit","cat","sv a b"}
+ops[35] = {"ld a lit","ld b var","ld c var","math pow b c","sv b"}
+ops[36] = {"ld a lit","ld b lit","ld c lit","cat","sv b"}
 
 --Konstants
-ops[37] = {"ld a lit","ld d str","sv a d"}
+ops[37] = {"ld a lit","ld d str","sv d"}
 //KCDATA not implemented.
-ops[39] = {"ld a lit","ld d lits","sv a d"}
-ops[40] = {"ld a lit","ld d num","sv a d"}
-ops[41] = {"ld a lit","ld d pri","sv a d"}
+ops[39] = {"ld a lit","ld d lits","sv d"}
+ops[40] = {"ld a lit","ld d num","sv d"}
+ops[41] = {"ld a lit","ld d pri","sv d"}
 ops[42] = {"ld a lit","ld d lit","sv nils"}
 
 --Upvalues, Closures
-ops[43] = {"ld a lit","ld d lit","uv get","sv a d"}
+ops[43] = {"ld a lit","ld d lit","uv get","sv d"}
 ops[44] = {"ld a lit","ld d var","uv set"}
 ops[45] = {"ld a lit","ld d str","uv set"}
 ops[46] = {"ld a lit","ld d num","uv set"}
 ops[47] = {"ld a lit","ld d pri","uv set"}
 ops[48] = {"ld a lit","ld d lit","uv close","jmp"}
-ops[49] = {"ld a lit","ld d func","sv a d"}
+ops[49] = {"ld a lit","ld d func","sv d"}
 
 --Table
-ops[50] = {"ld a lit","sv a t"}
-ops[51] = {"ld a lit","ld d tbl","sv a d"}
-ops[52] = {"ld a lit","ld d str","tget g d","sv a d"}
+ops[50] = {"ld a lit","sv t"}
+ops[51] = {"ld a lit","ld d tbl","sv d"}
+ops[52] = {"ld a lit","ld d str","tget g d","sv d"}
 ops[53] = {"ld a var","ld d str","tset g d a"}
-ops[54] = {"ld a lit","ld b var","ld c var","tget b c","sv a c"}
-ops[55] = {"ld a lit","ld b var","ld c str","tget b c","sv a c"}
-ops[56] = {"ld a lit","ld b var","ld c lit","tget b c","sv a c"}
+ops[54] = {"ld a lit","ld b var","ld c var","tget b c","sv c"}
+ops[55] = {"ld a lit","ld b var","ld c str","tget b c","sv c"}
+ops[56] = {"ld a lit","ld b var","ld c lit","tget b c","sv c"}
 ops[57] = {"ld a var","ld b var","ld c var","tset b c a"}
 ops[58] = {"ld a var","ld b var","ld c str","tset b c a"}
 ops[59] = {"ld a var","ld b var","ld c lit","tset b c a"}

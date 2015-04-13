@@ -60,8 +60,8 @@ for op, meta_instructions in pairs(killua.ops) do
 			elseif dst=="vargs" then
 				add_src("context.ret_start=a context.ret_count=b context:handleReturns(context.vargs)")
 			else
-				if src1=="t" then src1="{}" end
-				add_src("context.vars["..dst.."] = "..src1)
+				if dst=="t" then dst="{}" end
+				add_src("context.vars[a] = "..dst)
 			end
 		elseif mop=="cmp" then
 			if (dst!="eq" and dst!="neq") then
