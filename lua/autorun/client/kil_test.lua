@@ -10,7 +10,10 @@ concommand.Add("kil_test",function()
 	local testCode = [[
 		local n=1
 		while true do
-			print(n)
+			local t = {}
+			t['a']=7
+			print(n,t.a)
+			
 			n=n+1
 		end
 	]]

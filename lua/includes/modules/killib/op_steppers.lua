@@ -155,24 +155,23 @@ for op, meta_instructions in pairs(killua.ops) do
 			end
 		elseif mop=="tget" then
 			if dst=="g" then
-				dst="context.env.globals"
+				add_src("d = rawget(context.env.globals,d)")
 			else
-				add_src("if !istable("..dst..") then return 'Attempt to index '..type(d)..'.' end")
+				add_src("if !istable(b) then return 'Attempt to index '..type(b)..'.' end")
+				add_src("c = rawget(b,c)")
 			end
-			add_src(src1.." = "..dst.."["..src1.."]")
 		elseif mop=="tset" then
 			if dst=="multi" then
 				add_src("local tbl=context.vars[a-1]")
 				add_src("local n = 0")
 				add_src("for i=a,a+context.multres-1 do tbl[d+n]=context.vars[i] n=n+1 end")
-				--add_src("print('TSETM',a,d) return '-'")
 			else
 				if dst=="g" then
-					dst="context.env.globals"
+					add_src("rawset(context.env.globals,d,a)")
 				else
-					add_src("if !istable("..dst..") then return 'Attempt to index '..type(d)..'.' end")
+					add_src("if !istable(b) then return 'Attempt to index '..type(b)..'.' end")
+					add_src("rawset(b,c,a)")
 				end
-				add_src(dst.."["..src1.."] = "..src2)
 			end
 		elseif mop=="jmp" then
 			add_src("context.pc=context.pc+d-0x8000")

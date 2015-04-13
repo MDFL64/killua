@@ -93,14 +93,14 @@ ops[49] = {"ld a lit","ld d func","sv d"}
 --Table
 ops[50] = {"ld a lit","sv t"}
 ops[51] = {"ld a lit","ld d tbl","sv d"}
-ops[52] = {"ld a lit","ld d str","tget g d","sv d"}
-ops[53] = {"ld a var","ld d str","tset g d a"}
-ops[54] = {"ld a lit","ld b var","ld c var","tget b c","sv c"}
-ops[55] = {"ld a lit","ld b var","ld c str","tget b c","sv c"}
-ops[56] = {"ld a lit","ld b var","ld c lit","tget b c","sv c"}
-ops[57] = {"ld a var","ld b var","ld c var","tset b c a"}
-ops[58] = {"ld a var","ld b var","ld c str","tset b c a"}
-ops[59] = {"ld a var","ld b var","ld c lit","tset b c a"}
+ops[52] = {"ld a lit","ld d str","tget g","sv d"}
+ops[53] = {"ld a var","ld d str","tset g"}
+ops[54] = {"ld a lit","ld b var","ld c var","tget","sv c"}
+ops[55] = {"ld a lit","ld b var","ld c str","tget","sv c"}
+ops[56] = {"ld a lit","ld b var","ld c lit","tget","sv c"}
+ops[57] = {"ld a var","ld b var","ld c var","tset"}
+ops[58] = {"ld a var","ld b var","ld c str","tset"}
+ops[59] = {"ld a var","ld b var","ld c lit","tset"}
 ops[60] = {"ld a lit","ld d wtf","tset multi"}
 
 --Calls
