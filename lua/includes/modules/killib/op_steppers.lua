@@ -161,7 +161,7 @@ for op, meta_instructions in pairs(killua.ops) do
 					add_src("c = rawget(b,c)")
 				add_src("else")
 					add_src("local m = context.env.metas[type(b)]")
-					add_src("if m and m.__index then")
+					add_src("if m then")
 						add_src("local i = m.__index")
 						add_src("if isfunction(i) then")
 							add_src("c = i(b,c)")
@@ -170,6 +170,8 @@ for op, meta_instructions in pairs(killua.ops) do
 						add_src("else")
 							add_src("return 'Attempt to index '..type(b)..'.'")
 						add_src("end")
+					add_src("else")
+						add_src("return 'Attempt to index '..type(b)..'.'")
 					add_src("end")
 				add_src("end")
 			end
@@ -180,10 +182,23 @@ for op, meta_instructions in pairs(killua.ops) do
 				add_src("for i=a,a+context.multres-1 do tbl[d+n]=context.vars[i] n=n+1 end")
 			else
 				if dst=="g" then
-					add_src("rawset(context.env.globals,d,a)")
+					add_src("context.env.globals[d]=a")
 				else
-					add_src("if !istable(b) then return 'Attempt to index '..type(b)..'.' end")
-					add_src("rawset(b,c,a)")
+					add_src("if istable(b) then")
+						add_src("rawset(b,c,a)")
+					add_src("else")
+						add_src("local m = context.env.metas[type(b)]")
+						add_src("if m then")
+							add_src("local i = m.__newindex")
+							add_src("if isfunction(i) then")
+								add_src("i(b,c,a)")
+							add_src("else")
+								add_src("return 'Attempt to index '..type(b)..'.'")
+							add_src("end")
+						add_src("else")
+							add_src("return 'Attempt to index '..type(b)..'.'")
+						add_src("end")
+					add_src("end")
 				end
 			end
 		elseif mop=="jmp" then
