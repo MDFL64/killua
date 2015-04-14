@@ -230,16 +230,11 @@ local KIL_ENV = {}
 KIL_ENV.__index = KIL_ENV
 
 -- Make a new env. Can pass a table -OR- getter/setter functions.
-local function NEW_ENV(index1,index2)
+local function NEW_ENV(globals,metas)
 	local self = {}
-	if istable(index1) then
-		self.globals = index1
-	elseif isfunction(index1) and isfunction(index2) then
-		self.globals = {}
-		setmetatable(self.globals,{__index=index1,__newindex=index2})
-	else
-		error("Invalid parameters for new env.")
-	end
+	self.globals = globals
+	self.metas=metas or {}
+
 	setmetatable(self,KIL_ENV)
 	return self
 end

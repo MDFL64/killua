@@ -155,10 +155,26 @@ for op, meta_instructions in pairs(killua.ops) do
 			end
 		elseif mop=="tget" then
 			if dst=="g" then
-				add_src("d = rawget(context.env.globals,d)")
+				add_src("d = context.env.globals[d]")
 			else
-				add_src("if !istable(b) then return 'Attempt to index '..type(b)..'.' end")
-				add_src("c = rawget(b,c)")
+				add_src("if istable(b) then")
+					add_src("c = rawget(b,c)")
+				add_src("else")
+					add_src("local m = context.env.metas[type(b)]")
+					add_src("if m then")
+						add_src("c = m[c]")
+						add_src("if c == nil then")
+							add_src("local i = m.__index")
+							add_src("if isfunction(i) then")
+								add_src("c = i(b,c)")
+							add_src("elseif istable(i) then")
+								add_src("c = i[c]")
+							add_src("else")
+								add_src("return 'Attempt to index '..type(b)..'.'")
+							add_src("end")
+						add_src("end")
+					add_src("end")
+				add_src("end")
 			end
 		elseif mop=="tset" then
 			if dst=="multi" then
