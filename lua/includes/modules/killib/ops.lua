@@ -57,11 +57,11 @@ ops[22] = {"ld a lit","ld b var","ld c num","math mul b c","sv b"}
 ops[23] = {"ld a lit","ld b var","ld c num","math div b c","sv b"}
 ops[24] = {"ld a lit","ld b var","ld c num","math mod b c","sv b"}
 
-ops[25] = {"ld a lit","ld b var","ld c num","math add c b","sv b"}
-ops[26] = {"ld a lit","ld b var","ld c num","math sub c b","sv b"}
-ops[27] = {"ld a lit","ld b var","ld c num","math mul c b","sv b"}
-ops[28] = {"ld a lit","ld b var","ld c num","math div c b","sv b"}
-ops[29] = {"ld a lit","ld b var","ld c num","math mod c b","sv b"}
+ops[25] = {"ld a lit","ld b var","ld c num","math add c b","sv c"}
+ops[26] = {"ld a lit","ld b var","ld c num","math sub c b","sv c"}
+ops[27] = {"ld a lit","ld b var","ld c num","math mul c b","sv c"}
+ops[28] = {"ld a lit","ld b var","ld c num","math div c b","sv c"}
+ops[29] = {"ld a lit","ld b var","ld c num","math mod c b","sv c"}
 
 ops[30] = {"ld a lit","ld b var","ld c var","math add b c","sv b"}
 ops[31] = {"ld a lit","ld b var","ld c var","math sub b c","sv b"}
