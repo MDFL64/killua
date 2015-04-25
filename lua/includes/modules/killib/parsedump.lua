@@ -46,12 +46,15 @@ function killua.parseDump(dump)
 			local exp = bit.rshift(hi,20)
 			local frac = n+bit.band(hi,1048575)*2^32 --lshift doesn't seem to work for really big numbers.
 
+			local negative = bit.band(exp,2^11)>0
+			if negative then
+				exp = bit.band(exp,2^11-1)
+			end
+
 			frac = 1+(frac/(0xFFFFFFFFFFFFF))
 			exp = exp - 1023
 
-			local rebuilt
-			if bit.band(exp,2^11)>0 then --negative
-				exp = exp - 2^11
+			if negative then
 				return -math.ldexp(frac,exp), n
 			else
 				return math.ldexp(frac,exp), n
